@@ -13,6 +13,8 @@ namespace TechJobsConsole
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
+            //IList<Dictionary<string,string>> AllJobsCopy = AllJobs.AsReadOnly();
+            //return (List<Dictionary<string, string>>)AllJobsCopy;
             return AllJobs;
         }
 
@@ -49,7 +51,7 @@ namespace TechJobsConsole
             {
                 string aValue = row[column];
 
-                if (aValue.Contains(value))
+                if (aValue.Contains(value, System.StringComparison.CurrentCultureIgnoreCase))
                 {
                     jobs.Add(row);
                 }
@@ -71,7 +73,7 @@ namespace TechJobsConsole
             {
                 foreach (string aKey in job.Keys)
                 {
-                    if (job[aKey].Contains(value) && !jobs.Contains(job)) {
+                    if (job[aKey].Contains(value, System.StringComparison.CurrentCultureIgnoreCase) && !jobs.Contains(job)) {
                         jobs.Add(job);
                     } // if aKey
                 } // foreach string
