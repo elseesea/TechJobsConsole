@@ -13,8 +13,6 @@ namespace TechJobsConsole
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
-            //IList<Dictionary<string,string>> AllJobsCopy = AllJobs.AsReadOnly();
-            //return (List<Dictionary<string, string>>)AllJobsCopy;
             return AllJobs;
         }
 
